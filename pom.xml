@@ -51,15 +51,25 @@
 				<plugins>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-enforcer-plugin</artifactId>
+						<artifactId>maven-toolchains-plugin</artifactId>
+						<version>1.1</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>toolchain</goal>
+								</goals>
+							</execution>
+						</executions>
 						<configuration>
-							<rules>
-								<requireJavaVersion>
-									<version>[9,10)</version>
-								</requireJavaVersion>
-							</rules>
+							<toolchains>
+								<jdk>
+									<version>9</version>
+									<vendor>oracle</vendor>
+								</jdk>
+							</toolchains>
 						</configuration>
 					</plugin>
+
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-compiler-plugin</artifactId>
@@ -142,6 +152,26 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-toolchains-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>toolchain</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<toolchains>
+						<jdk>
+							<version>1.8</version>
+							<vendor>oracle</vendor>
+						</jdk>
+					</toolchains>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
