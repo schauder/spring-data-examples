@@ -17,16 +17,7 @@
 	<inceptionYear>2011-2014</inceptionYear>
 
 	<modules>
-		<module>example</module>
-	<!--	<module>showcase</module> triggers exception when creating schema or inserting data -->
-		<module>interceptors</module>
-		<module>java8</module>
-		<module>javaslang</module>
-		<module>jpa21</module>
-		<module>security</module>
-		<module>multiple-datasources</module>
-		<module>eclipselink</module>
-		<module>query-by-example</module>
+	  <module>showcase</module>
 	</modules>
 
 	<properties>
