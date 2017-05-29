@@ -33,7 +33,6 @@ public class Account {
 
 	@Id @GeneratedValue(strategy = GenerationType.AUTO) private Long id;
 
-	@ManyToOne private Customer customer;
 
 	@Temporal(TemporalType.DATE) private Date expiryDate;
 
@@ -41,9 +40,6 @@ public class Account {
 		return id;
 	}
 
-	public Customer getCustomer() {
-		return customer;
-	}
 
 	public Date getExpiryDate() {
 		return expiryDate;

@@ -18,18 +18,15 @@ package example.springdata.jpa.showcase.after;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
-import java.util.List;
-
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import example.springdata.jpa.showcase.AbstractShowcaseTest;
 import example.springdata.jpa.showcase.core.Account;
-import example.springdata.jpa.showcase.core.Customer;
 
 /**
  * Integration tests for Spring Data JPA {@link AccountRepository}.
- * 
+ *
  * @author Oliver Gierke
  */
 public class AccountRepositoryIntegrationTest extends AbstractShowcaseTest {
@@ -42,6 +39,4 @@ public class AccountRepositoryIntegrationTest extends AbstractShowcaseTest {
 		Account account = accountRepository.save(new Account());
 		assertThat(account.getId(), is(notNullValue()));
 	}
-
-
 }

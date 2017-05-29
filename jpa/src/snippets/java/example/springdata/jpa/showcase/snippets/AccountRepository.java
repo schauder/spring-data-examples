@@ -22,22 +22,14 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
 import example.springdata.jpa.showcase.core.Account;
-import example.springdata.jpa.showcase.core.Customer;
 
 /**
  * Repository to manage {@link Account} instances.
- * 
+ *
  * @author Oliver Gierke
  */
 @NoRepositoryBean
 public interface AccountRepository extends CrudRepository<Account, Long>, AccountRepositoryCustom,
 		QueryDslPredicateExecutor<Account> {
 
-	/**
-	 * Returns all accounts belonging to the given {@link Customer}.
-	 * 
-	 * @param customer
-	 * @return
-	 */
-	List<Account> findByCustomer(Customer customer);
 }
