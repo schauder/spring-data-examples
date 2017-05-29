@@ -15,14 +15,10 @@
  */
 package example.springdata.jpa.showcase.after;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import example.springdata.jpa.showcase.AbstractShowcaseTest;
-import example.springdata.jpa.showcase.core.Account;
 
 /**
  * Integration tests for Spring Data JPA {@link AccountRepository}.
