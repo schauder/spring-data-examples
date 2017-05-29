@@ -35,8 +35,5 @@ public class AccountRepositoryIntegrationTest extends AbstractShowcaseTest {
 
 	@Test
 	public void savesAccount() {
-
-		Account account = accountRepository.save(new Account());
-		assertThat(account.getId(), is(notNullValue()));
 	}
 }
