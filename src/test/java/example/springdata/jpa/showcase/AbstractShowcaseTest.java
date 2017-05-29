@@ -35,6 +35,5 @@ public abstract class AbstractShowcaseTest extends AbstractTransactionalJUnit4Sp
 	public void setupData() throws Exception {
 
 		deleteFromTables("account", "customer");
-		executeSqlScript("classpath:data.sql", false);
 	}
 }
