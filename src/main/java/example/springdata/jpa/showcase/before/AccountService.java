@@ -13,35 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package example.springdata.jpa.showcase.after;
-
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+package example.springdata.jpa.showcase.before;
 
 import java.util.List;
 
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import example.springdata.jpa.showcase.AbstractShowcaseTest;
 import example.springdata.jpa.showcase.core.Account;
 import example.springdata.jpa.showcase.core.Customer;
 
 /**
- * Integration tests for Spring Data JPA {@link AccountRepository}.
+ * Service interface for {@link Account}s.
  * 
  * @author Oliver Gierke
  */
-public class AccountRepositoryIntegrationTest extends AbstractShowcaseTest {
+public interface AccountService {
 
-	@Autowired AccountRepository accountRepository;
+	/**
+	 * Saves the given {@link Account}.
+	 * 
+	 * @param account
+	 * @return
+	 */
+	Account save(Account account);
 
-	@Test
-	public void savesAccount() {
-
-		Account account = accountRepository.save(new Account());
-		assertThat(account.getId(), is(notNullValue()));
-	}
-
-
+	/**
+	 * Returns all {@link Account}s of the given {@link Customer}.
+	 * 
+	 * @param customer
+	 * @return
+	 */
+	List<Account> findByCustomer(Customer customer);
 }

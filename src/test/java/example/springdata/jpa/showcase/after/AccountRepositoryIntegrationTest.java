@@ -35,6 +35,7 @@ import example.springdata.jpa.showcase.core.Customer;
 public class AccountRepositoryIntegrationTest extends AbstractShowcaseTest {
 
 	@Autowired AccountRepository accountRepository;
+	@Autowired CustomerRepository customerRepository;
 
 	@Test
 	public void savesAccount() {
@@ -43,5 +44,13 @@ public class AccountRepositoryIntegrationTest extends AbstractShowcaseTest {
 		assertThat(account.getId(), is(notNullValue()));
 	}
 
+	@Test
+	public void findsCustomersAccounts() {
 
+		Customer customer = customerRepository.findOne(1L);
+		List<Account> accounts = accountRepository.findByCustomer(customer);
+
+		assertFalse(accounts.isEmpty());
+		assertThat(accounts.get(0).getCustomer(), is(customer));
+	}
 }

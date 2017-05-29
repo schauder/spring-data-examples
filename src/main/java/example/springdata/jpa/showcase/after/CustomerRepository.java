@@ -15,33 +15,26 @@
  */
 package example.springdata.jpa.showcase.after;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.repository.CrudRepository;
 
-import java.util.List;
-
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import example.springdata.jpa.showcase.AbstractShowcaseTest;
-import example.springdata.jpa.showcase.core.Account;
 import example.springdata.jpa.showcase.core.Customer;
 
 /**
- * Integration tests for Spring Data JPA {@link AccountRepository}.
+ * Repository to manage {@link Customer} instances.
  * 
  * @author Oliver Gierke
  */
-public class AccountRepositoryIntegrationTest extends AbstractShowcaseTest {
+public interface CustomerRepository extends CrudRepository<Customer, Long>, JpaSpecificationExecutor<Customer> {
 
-	@Autowired AccountRepository accountRepository;
-
-	@Test
-	public void savesAccount() {
-
-		Account account = accountRepository.save(new Account());
-		assertThat(account.getId(), is(notNullValue()));
-	}
-
-
+	/**
+	 * Returns a page of {@link Customer}s with the given lastname.
+	 * 
+	 * @param lastname
+	 * @param pageable
+	 * @return
+	 */
+	Page<Customer> findByLastname(String lastname, Pageable pageable);
 }
