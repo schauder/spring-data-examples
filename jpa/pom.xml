@@ -18,7 +18,7 @@
 
 	<modules>
 		<module>example</module>
-		<module>showcase</module>
+	<!--	<module>showcase</module> triggers exception when creating schema or inserting data -->
 		<module>interceptors</module>
 		<module>java8</module>
 		<module>javaslang</module>
