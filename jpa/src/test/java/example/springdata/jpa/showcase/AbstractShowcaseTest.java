@@ -31,10 +31,4 @@ public abstract class AbstractShowcaseTest extends AbstractTransactionalJUnit4Sp
 	@SpringBootApplication
 	static class TestConfig {}
 
-	@BeforeTransaction
-	public void setupData() throws Exception {
-
-		deleteFromTables("account");
-		executeSqlScript("classpath:data.sql", false);
-	}
 }
